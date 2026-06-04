@@ -23,6 +23,8 @@
       <li><a href="#band">Músicos</a></li>
       <li><a href="#shows">Shows</a></li>
       <li><a href="#songs">Canciones</a></li>
+	  <li><a href="#gallery">Fotos</a></li>
+      <li><a href="#merch">Merch</a></li>
       <li><a href="#social">Redes</a></li>
       <li><a href="#shows" class="nav-cta">Entradas</a></li>
     </ul>
@@ -35,6 +37,8 @@
     <a href="#band" onclick="toggleMenu()">Músicos</a>
     <a href="#shows" onclick="toggleMenu()">Shows</a>
     <a href="#songs" onclick="toggleMenu()">Canciones</a>
+    <a href="#gallery" onclick="toggleMenu()">Fotos</a>
+    <a href="#merch" onclick="toggleMenu()">Merch</a>
     <a href="#social" onclick="toggleMenu()">Redes</a>
   </div>
 
@@ -229,7 +233,7 @@
           </div>
           <div class="show-actions">
             <a href="https://www.passline.com" target="_blank" class="btn-ticket">Comprar entradas</a>
-            <a href="https://maps.google.com?q=La+Tangente+Honduras+5317+Palermo+Buenos+Aires" target="_blank" class="btn-maps">Ver en el mapa</a>
+            <a href="https://www.google.com/maps/place/Club+de+la+M%C3%BAsica:+comida,+bebidas+y+shows/@-34.5505021,-58.5508286,21z/data=!4m6!3m5!1s0x95bcb75431d6df2d:0x3fd3f607a5c13198!8m2!3d-34.5505405!4d-58.5507494!16s%2Fg%2F11c1szg9sm?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-maps">Ver en el mapa</a>
           </div>
         </div>
 
@@ -249,7 +253,7 @@
           </div>
           <div class="show-actions">
             <a href="#social" class="btn-ticket" style="background:var(--gray);color:var(--silver);pointer-events:none;">Entradas Próximamente</a>
-            <a href="https://maps.google.com?q=Niceto+Club+5510+Palermo+Buenos+Aires" target="_blank" class="btn-maps">Ver en el mapa</a>
+            <a href="https://www.google.com/maps/place/City+Bar/@-34.510694,-58.5351699,17z/data=!3m2!4b1!5s0x95bcb08d5c6d92b7:0x4470aa737e020ad4!4m6!3m5!1s0x95bcb08d6c78a2a1:0x5112d0506cb6d487!8m2!3d-34.5106984!4d-58.532595!16s%2Fg%2F11bw2jyqsn?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-maps">Ver en el mapa</a>
           </div>
         </div>
 
@@ -295,6 +299,122 @@
           <div class="lyrics-meta" id="lyricsMeta">—</div>
           <div class="lyrics-body" id="lyricsBody">
             <span class="lyrics-empty">Hacé click en cualquier canción de la lista para ver su letra.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <section id="gallery">
+    <div class="section-inner">
+      <span class="section-label">Recuerdos</span>
+      <h2 class="section-title">Galería de Fotos</h2>
+      <p class="section-sub">El agite inmortalizado por el ojo de Walter Santillán.</p>
+
+      <div class="gallery-grid">
+        
+        <!-- ÁLBUM 1: Club de la Música -->
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/gallery/cdlm.jpg" alt="Club de la Música" />
+          <div class="gallery-overlay">
+            <div>
+              <span>Club de la Música</span>
+              <p class="album-counter">Ver álbum (4 fotos)</p>
+            </div>
+          </div>
+          <!-- Fotos ocultas de este show (la primera es la misma portada) -->
+          <div class="album-urls" style="display: none;">
+            <span>images/gallery/cdlm-1.jpeg</span>
+            <span>images/gallery/cdlm-2.jpeg</span>
+            <span>images/gallery/cdlm-3.jpeg</span>
+            <span>images/gallery/cdlm-4.jpeg</span>
+          </div>
+        </div>
+
+        <!-- ÁLBUM 2: Cultura Wiphala -->
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/gallery/cw.jpg" alt="Cultura Wiphala" />
+          <div class="gallery-overlay">
+            <div>
+              <span>Cultura Wiphala</span>
+              <p class="album-counter">Ver álbum (2 fotos)</p>
+            </div>
+          </div>
+          <div class="album-urls" style="display: none;">
+            <span>images/gallery/cw-1.jpeg</span>
+            <span>images/gallery/cw-2.jpeg</span>
+          </div>
+        </div>
+
+        <!-- ÁLBUM 3: Ensayos / Generales -->
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/gallery/bkstg.jpeg" alt="Ensayos" />
+          <div class="gallery-overlay">
+            <div>
+              <span>Ensayos & Backstage</span>
+              <p class="album-counter">Ver álbum (2 fotos)</p>
+            </div>
+          </div>
+          <div class="album-urls" style="display: none;">
+            <span>images/gallery/bkstg-1.jpeg</span>
+            <span>images/gallery/bkstg-2.jpeg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTANA FLOTANTE (LIGHTBOX) -> Va al final del HTML, justo antes de cerrar el </body> -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-btn prev" onclick="changeImage(-1)">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Foto ampliada" />
+      <div id="lightbox-index" class="lightbox-index">1 / 1</div>
+    </div>
+    <button class="lightbox-btn next" onclick="changeImage(1)">&#10095;</button>
+  </div>
+
+    <section id="merch">
+    <div class="section-inner">
+      <span class="section-label">Llevate el rock</span>
+      <h2 class="section-title">Merchandising oficial</h2>
+      <p class="section-sub">Apoyá a la banda vistiendo los trapos oficiales.</p>
+
+      <div class="merch-grid">
+        
+                <div class="product-card">
+          <div class="product-image">
+            <img src="images/merch/remeras.jpeg" alt="Remera Cabarule Frule" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Remeras</h3>
+            <p class="product-price">$18.000</p>
+            <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20una%20remera" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
+          </div>
+        </div>
+
+                <div class="product-card">
+          <div class="product-image">
+            <img src="images/merch/gorras.jpeg" alt="Gorra Trucker" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Gorra Cabarule</h3>
+            <p class="product-price">$10.000</p>
+            <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20una%20gorra" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
+          </div>
+        </div>
+
+                <div class="product-card">
+          <div class="product-image">
+            <img src="images/merch/sticker-pack.jpeg" alt="Pack de calcos" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Pack de Calcos (X5)</h3>
+            <p class="product-price">$2.500</p>
+            <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20el%20pack%20de%20calcos" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
           </div>
         </div>
 

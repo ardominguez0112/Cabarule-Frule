@@ -140,3 +140,76 @@ document.querySelectorAll('.member-card, .show-row, .stat-card, .social-link').f
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
 });
+
+
+function filterGallery(category) {
+  const items = document.querySelectorAll('.gallery-item');
+  const buttons = document.querySelectorAll('.btn-filter');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Filtrar imágenes
+  items.forEach(item => {
+    if (category === 'all' || item.classList.contains(category)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+let currentAlbumImages = [];
+let currentImageIndex = 0;
+
+function openLightbox(element) {
+  // 1. Buscamos todos los <span> dentro del div oculto de esa tarjeta
+  const spans = element.querySelectorAll('.album-urls span');
+  currentAlbumImages = Array.from(spans).map(span => span.textContent.trim());
+  
+  // 2. Reseteamos el índice a la primera foto (la portada)
+  currentImageIndex = 0;
+  
+  if (currentAlbumImages.length > 0) {
+    updateLightboxImage();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden'; // Evita que la página de fondo haga scroll
+  }
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = 'auto'; // Devuelve el scroll a la página
+}
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+  
+  // Si se pasa del final, vuelve a la primera
+  if (currentImageIndex >= currentAlbumImages.length) {
+    currentImageIndex = 0;
+  }
+  // Si va hacia atrás del principio, va a la última
+  if (currentImageIndex < 0) {
+    currentImageIndex = currentAlbumImages.length - 1;
+  }
+  
+  updateLightboxImage();
+}
+
+function updateLightboxImage() {
+  const imgElement = document.getElementById('lightbox-img');
+  const indexElement = document.getElementById('lightbox-index');
+  
+  // Cambia la ruta de la imagen
+  imgElement.src = currentAlbumImages[currentImageIndex];
+  // Actualiza el texto "1 / 4", "2 / 4", etc.
+  indexElement.textContent = `${currentImageIndex + 1} / ${currentAlbumImages.length}`;
+}
+
+// Opcional: Cerrar el visor si clickean la parte negra del fondo
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeLightbox();
+  }
+});

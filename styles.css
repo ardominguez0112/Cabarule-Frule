@@ -573,6 +573,297 @@ section { padding: 7rem 2rem; }
 }
 
 /* ────────────────────────────────────────
+   GALERÍA (FOTOS)
+──────────────────────────────────────── */
+#gallery { background: var(--black); }
+
+.gallery-filters {
+  display: flex;
+  gap: 0.8rem;
+  margin: 2.5rem 0 3rem;
+  flex-wrap: wrap;
+}
+
+.btn-filter {
+  background: transparent;
+  color: var(--silver);
+  border: 1px solid var(--gray);
+  padding: 0.5rem 1.2rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-filter:hover {
+  border-color: var(--light);
+  color: var(--white);
+}
+
+.btn-filter.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--gray);
+  aspect-ratio: 4 / 3;
+  background: var(--mid);
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(60%);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.9) 0%, rgba(204, 26, 26, 0.2) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-overlay span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+/* Hover de la Galería */
+.gallery-item:hover {
+  border-color: var(--red);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-overlay span {
+  transform: translateY(0);
+}
+
+/* Ajustes en el overlay existente para soportar dos textos */
+.gallery-overlay div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.album-counter {
+  font-size: 0.75rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover .album-counter {
+  transform: translateY(0);
+}
+
+/* ── EL VISOR FLOTANTE (LIGHTBOX) ── */
+.lightbox {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  inset: 0;
+  z-index: 2000; /* Por encima de la navbar */
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 85vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 30px;
+  color: var(--white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 2001;
+}
+.lightbox-close:hover { color: var(--red); }
+
+/* Flechas de navegación */
+.lightbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid var(--gray);
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  z-index: 2001;
+}
+.lightbox-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.lightbox-btn.prev { left: 30px; }
+.lightbox-btn.next { right: 30px; }
+
+/* Indicador de número de foto */
+.lightbox-index {
+  margin-top: 15px;
+  color: var(--silver);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* Ocultar flechas en celulares si es una sola foto */
+@media (max-width: 768px) {
+  .lightbox-btn { padding: 0.6rem; font-size: 1rem; }
+  .lightbox-btn.prev { left: 10px; }
+  .lightbox-btn.next { right: 10px; }
+}
+
+
+/* ────────────────────────────────────────
+   MERCHANDISING
+──────────────────────────────────────── */
+#merch { background: var(--dark); }
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.product-card {
+  background: linear-gradient(180deg, var(--mid) 0%, var(--dark) 100%);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.product-card:hover {
+  border-color: var(--gray);
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--black);
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--gray);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.03);
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.product-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--light);
+  margin-bottom: 1.5rem;
+}
+
+.btn-merch {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--red);
+  padding: 0.75rem 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  display: block;
+}
+
+.btn-merch:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 4px 12px rgba(204, 26, 26, 0.2);
+}
+
+/* ────────────────────────────────────────
    REDES SOCIALES
 ──────────────────────────────────────── */
 #social { background: var(--dark); }
