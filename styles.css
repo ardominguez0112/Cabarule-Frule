@@ -919,6 +919,31 @@ footer {
   letter-spacing: 0.05em;
 }
 
+.footer-dev {
+  font-size: 0.72rem;
+  color: var(--silver);
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.footer-dev a {
+  color: var(--light);
+  font-weight: 600;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem; /* Despega el icono del texto */
+  vertical-align: middle;
+}
+
+.linkedin-icon {
+  flex-shrink: 0;
+}
+
+.footer-dev a:hover {
+  color: var(--red);
+}
+
 /* ────────────────────────────────────────
    KEYFRAMES
 ──────────────────────────────────────── */
