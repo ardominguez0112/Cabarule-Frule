@@ -47,7 +47,8 @@
     <h1 class="hero-title">
       Cabarule<span>Frule</span>
     </h1>
-    <p class="hero-tagline">A donde voy... No vas a poder venir...</p>
+    <p class="hero-tagline">"A donde voy... No vas a poder venir... <br>
+	Es que no te diste cuenta que en el pecho te falta lo que me sobra a mí..." <em style="font-weight: bold; color: var(--red);"> El Águila</em></p>
     <div class="hero-actions">
       <a href="#shows" class="btn-primary">Ver próximos shows</a>
       <a href="#songs" class="btn-outline">Ver Discografía</a>
@@ -102,13 +103,13 @@
         <div class="about-image-wrap">
           
           <div class="about-img-placeholder">
-		  <img src="images/generales/banda.jpeg" alt="Cabarule Frule" />
+		  <img src="images/generales/banda.jpeg" alt="Cabarule Frule" loading="lazy"/>
           </div>
         </div>
       </div>
     </div>
   </section>
-
+	<hr class="red-separator">
   <!-- ═══════ MÚSICOS ═══════ -->
   <section id="band">
     <div class="section-inner">
@@ -118,7 +119,7 @@
 
         <!-- MÚSICO 1 -->
         <div class="member-card">
-          <img src="images/generales/foto-javi2.jpeg" alt="Javi" class="member-photo" />
+          <img src="images/generales/foto-javi2.jpeg" alt="Javi" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Javier Dominguez</div>
             <div class="member-role">Voz / Guitarra</div>
@@ -128,7 +129,7 @@
 
         <!-- MÚSICO 2 -->
         <div class="member-card">
-          <img src="images/generales/foto-pipa.jpeg" alt="Pipa" class="member-photo" />
+          <img src="images/generales/foto-pipa.jpeg" alt="Pipa" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Maxi "Pipa" Cassettari</div>
             <div class="member-role">Batería</div>
@@ -137,7 +138,7 @@
         </div>
 
         <div class="member-card">
-          <img src="images/generales/foto-franco.jpeg" alt="Franco" class="member-photo" />
+          <img src="images/generales/foto-franco.jpeg" alt="Franco" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Franco Espósito</div>
             <div class="member-role">Bajo</div>
@@ -146,7 +147,7 @@
         </div>
 
 		<div class="member-card">
-          <img src="images/generales/foto-ruso.jpeg" alt="Russo" class="member-photo" />
+          <img src="images/generales/foto-ruso.jpeg" alt="Russo" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Cristian "Ruso" Franco</div>
             <div class="member-role">Percusión</div>
@@ -155,7 +156,7 @@
         </div>
 		
 		<div class="member-card">
-          <img src="images/generales/foto-lean.jpeg" alt="Lean" class="member-photo" />
+          <img src="images/generales/foto-lean.jpeg" alt="Lean" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Leandro Elías</div>
             <div class="member-role">Guitarra</div>
@@ -164,7 +165,7 @@
         </div>
 		
 		<div class="member-card">
-          <img src="images/generales/foto-palon.jpeg" alt="Palón" class="member-photo" />
+          <img src="images/generales/foto-palon.jpeg" alt="Palón" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Pablo Gonzales Luna</div>
             <div class="member-role">Guitarra</div>
@@ -173,10 +174,7 @@
         </div>
 		
 		<div class="member-card">
-          <div class="member-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/></svg>
-            <span>foto-bibi.jpg</span>
-          </div>
+          <img src="images/generales/foto-bibi.jpeg" alt="Bibi" class="member-photo" loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Gabriel "El Bibi" Bonomi</div>
             <div class="member-role">Saxo</div>
@@ -185,7 +183,7 @@
         </div>
 		
         <div class="member-card">
-          <img src="images/generales/foto-walter.jpeg" alt="Walter" class="member-photo" />
+          <img src="images/generales/foto-walter.jpeg" alt="Walter" class="member-photo"loading="lazy"/>
           <div class="member-info">
             <div class="member-name">Walter Santillán</div>
             <div class="member-role">Mánager y Fotógrafo</div>
@@ -195,7 +193,8 @@
       </div>
     </div>
   </section>
-
+  
+   <hr class="red-separator">
   <!-- ═══════ SHOWS ═══════ -->
   <section id="shows">
     <div class="section-inner">
@@ -270,7 +269,8 @@
       </div>
     </div>
   </section>
-
+  
+    <hr class="red-separator">
   <!-- ═══════ CANCIONES ═══════ -->
   <section id="songs">
     <div class="section-inner">
@@ -295,6 +295,8 @@
       </div>
     </div>
   </section>
+  
+  <hr class="red-separator">
   
   <section id="gallery">
     <div class="section-inner">
@@ -356,15 +358,7 @@
     </div>
   </section>
 
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <button class="lightbox-btn prev" onclick="changeImage(-1)">&#10094;</button>
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="Foto ampliada" />
-      <div id="lightbox-index" class="lightbox-index">1 / 1</div>
-    </div>
-    <button class="lightbox-btn next" onclick="changeImage(1)">&#10095;</button>
-  </div>
+  <hr class="red-separator">
 
     <section id="merch">
     <div class="section-inner">
@@ -376,32 +370,32 @@
         
                 <div class="product-card">
           <div class="product-image">
-            <img src="images/merch/remeras.jpeg" alt="Remera Cabarule Frule" />
+            <img src="images/merch/remeras.jpeg" alt="Remera Cabarule Frule" loading="lazy" />
           </div>
           <div class="product-info">
-            <h3 class="product-title">Remeras</h3>
-            <p class="product-price">$18.000</p>
+            <h3 class="product-title">Remera C.F</h3>
+			<p class="product-price">$14.000</p>
             <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20una%20remera" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
           </div>
         </div>
 
                 <div class="product-card">
           <div class="product-image">
-            <img src="images/merch/gorras.jpeg" alt="Gorra Trucker" />
+            <img src="images/merch/gorras.jpeg" alt="Gorra Trucker" loading="lazy"/>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Gorra Cabarule</h3>
-            <p class="product-price">$10.000</p>
+            <h3 class="product-title">Gorra C.F</h3>
+            <p class="product-price">$7.000</p>
             <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20una%20gorra" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
           </div>
         </div>
 
                 <div class="product-card">
           <div class="product-image">
-            <img src="images/merch/sticker-pack.jpeg" alt="Pack de calcos" />
+            <img src="images/merch/sticker-pack.jpeg" alt="Pack de calcos" loading="lazy"/>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Pack de Calcos (X5)</h3>
+            <h3 class="product-title">Pack 5 Calcos C.F</h3>
             <p class="product-price">$2.500</p>
             <a href="https://wa.me/5491133956406?text=Hola!%20Quiero%20el%20pack%20de%20calcos" target="_blank" class="btn-merch">Pedir por WhatsApp</a>
           </div>
@@ -410,7 +404,7 @@
       </div>
     </div>
   </section>
-
+	<hr class="red-separator">
   <!-- ═══════ REDES ═══════ -->
   <section id="social">
     <div class="section-inner">
@@ -489,6 +483,16 @@
       </p>
     </div>
   </footer>
+  
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-btn prev" onclick="changeImage(-1)">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Foto ampliada" />
+      <div id="lightbox-index" class="lightbox-index">1 / 1</div>
+    </div>
+    <button class="lightbox-btn next" onclick="changeImage(1)">&#10095;</button>
+  </div>
 
   <script src="main.js"></script>
 </body>
